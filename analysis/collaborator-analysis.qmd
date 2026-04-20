@@ -1,5 +1,92 @@
 ---
-title: "collaborator-analysis"
+title: "Collaborator Analysis"
+author: "Patrick"
 format: html
+editor: visual
 ---
 
+## Exercise: Explore, Clean, and Wrangle Data
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(here)
+```
+
+```{r}
+lobster_traps <- read_csv(here::here("data/TimeSeries2.csv"))
+```
+
+```{r}
+glimpse(lobster_traps)
+```
+
+### Question 1
+
+```{r}
+lobster_traps <- lobster_traps %>%
+  mutate(TRAPS = na_if(TRAPS, -99999))
+
+unique(lobster_traps$TRAPS)
+```
+
+### Question 2
+
+```{r}
+traps_sub <- lobster_traps %>%
+  filter(SITE != "NAPL")
+
+unique(traps_sub$SITE)
+```
+
+### Question 3
+
+```{r}
+traps_aque <- lobster_traps %>%
+  filter(SITE == "AQUE", TRAPS > 20)
+```
+
+### Question 4
+
+```{r}
+traps_max <- lobster_traps %>%
+  group_by(SITE, MONTH) %>%
+  summarize(max_traps = max(TRAPS, na.rm = TRUE))
+
+traps_max
+```
+
+## Exercise: Data Visualization
+
+```{r}
+ggplot(lobster_traps, aes(x = TRAPS)) +
+  geom_histogram() +
+  facet_wrap(~ SITE)
+```
+
+```{r}
+traps_by_year <- lobster_traps %>%
+  group_by(YEAR, SITE) %>%
+  summarize(total_traps = sum(TRAPS, na.rm = TRUE))
+
+ggplot(traps_by_year, aes(x = YEAR, y = total_traps, color = SITE)) +
+  geom_line()
+```
+
+```{r}
+traps_plot <- ggplot(traps_by_year, aes(x = YEAR, y = total_traps, color = SITE)) +
+  geom_line(size = 1) +
+  labs(
+    title = "Lobster trap buoy counts by site",
+    x = "Year",
+    y = "Total traps",
+    color = "Site"
+  ) +
+  theme_light()
+
+traps_plot
+
+ggsave(here::here("figs/traps_by_year.png"), traps_plot, width = 8, height = 5)
+```
