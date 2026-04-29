@@ -8,68 +8,17 @@ date: "April 20, 2026"
 
 The data for this report was pulled from the Santa Barbra Coastal LTER group and focuses on the abundance, size, and fishing pressure of California spiny lobster. The monitoring of these three data points is indicative of the health of the kelp forests off the coast of southern California. The data points are collected from Marine Protected Ares (MPAs), which provides the opportunity to study natural community dynamics without outside interventions. The data was downloaded on April 20th, 2026 from the EDI Website (https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-sbc.77.8). 
 
-## Setup
-
-```{r}
-library(readr)
-library(dplyr)
-library(ggplot2)
-library(tidyr)
-library(here)
-```
-
-```{r}
-lobster_abundance <- read_csv(here::here("data/TimeSeries1.csv")) %>%
-  mutate(SIZE_MM = na_if(SIZE_MM, -99999))
-
-lobster_traps <- read_csv(here::here("data/TimeSeries2.csv")) %>%
-  mutate(TRAPS = na_if(TRAPS, -99999))
-```
-
 ## Owner analysis: Lobster abundance
 
 Total lobsters observed each year at each site.
 
-```{r}
-#| fig-alt: "Line graph of total lobsters observed by year at five reef sites in the Santa Barbara Channel."
-
-abundance_by_year <- lobster_abundance %>%
-  group_by(YEAR, SITE) %>%
-  summarize(total_lobsters = sum(COUNT, na.rm = TRUE))
-
-ggplot(abundance_by_year, aes(x = YEAR, y = total_lobsters, color = SITE)) +
-  geom_line(size = 1) +
-  labs(
-    title = "Total lobsters observed by site",
-    x = "Year",
-    y = "Total lobsters",
-    color = "Site"
-  ) +
-  theme_light()
-```
+![Line graph of total lobsters observed by year at five reef sites in the Santa Barbara Channel.](../figs/lobster_abundance_and_size_plot.png)
 
 ## Collaborator analysis: Trap buoy counts
 
 Total trap buoys observed each year at each site. Trap counts are a measure of fishing pressure.
 
-```{r}
-#| fig-alt: "Line graph of total lobster trap buoys observed by year at the five reef sites in the Santa Barbara Channel."
-
-traps_by_year <- lobster_traps %>%
-  filter(SITE %in% c("AQUE", "CARP", "MOHK", "IVEE", "NAPL")) %>%
-  group_by(YEAR, SITE) %>%
-  summarize(total_traps = sum(TRAPS, na.rm = TRUE))
-
-ggplot(traps_by_year, aes(x = YEAR, y = total_traps, color = SITE)) +
-  geom_line(size = 1) +
-  labs(
-    title = "Total trap buoys observed by site",
-    x = "Year",
-    y = "Total traps",
-    color = "Site"
-  ) +
-  theme_light()
-```
+![Line graph of total lobster trap buoys observed by year at the five reef sites in the Santa Barbara Channel.](../figs/traps_by_year.png)
 
 ## Summary
 
