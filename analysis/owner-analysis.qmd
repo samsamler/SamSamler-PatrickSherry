@@ -44,12 +44,22 @@ lobster_size_lrg <- lobster_abundance %>%
     drop_na()
 ```
 ```{r}
-# bar plot
-ggplot(data = lobster_size_lrg, aes(x = SITE, y = COUNT, fill = SIZE_BIN)) +
-    geom_col()
-
 # dodged bar plot
 ggplot(data = lobster_size_lrg, aes(x = SITE, y = COUNT, fill = SIZE_BIN)) +
-    geom_col(position = "dodge")
+       geom_col(position = position_dodge(width = 0.8)) +
+    geom_text(aes(label = COUNT),
+              position = position_dodge(width = 0.8),
+              vjust = -0.3,
+              size = 3) +
+    scale_fill_viridis_d(option = "D", end = 0.9) +
+    theme_minimal(base_size = 12) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    labs(
+        title = "Lobster Counts by Site and Size Class",
+        x = "Site",
+        y = "Count",
+        fill = "Size Category"
+    )
+ggsave("../figs/lobster_abundance_and_size_plot.png", width = 8, height = 5, dpi = 300)
 ```
 
