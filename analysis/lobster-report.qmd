@@ -7,3 +7,6 @@ date: "April 20, 2026"
 # Introduction:
 
 The data for this report was pulled from the Santa Barbra Coastal LTER group and focuses on the abundance, size, and fishing pressure of California spiny lobster. The monitoring of these three data points is indicative of the health of the kelp forests off the coast of southern California. The data points are collected from Marine Protected Ares (MPAs), which provides the opportunity to study natural community dynamics without outside interventions. The data was downloaded on April 20th, 2026 from the EDI Website (https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-sbc.77.8). 
+
+
+
