@@ -1,0 +1,13 @@
+
+  execute-dir: Assignment a07- Patrick and Sam    # Forces code to look for files starting from the root
+
+website:
+  title: "Lobster Report"
+  navbar:
+    left:
+      - index.qmd
+
+
+format:
+  html:
+    theme: cosmo
