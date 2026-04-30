@@ -12,14 +12,17 @@ The data for this report was pulled from the Santa Barbra Coastal LTER group and
 
 Total lobsters observed each year at each site.
 
-![Line graph of total lobsters observed by year at five reef sites in the Santa Barbara Channel.](../figs/lobster_abundance_and_size_plot.png)
+![Line graph of total lobsters observed by year at five reef sites in the Santa Barbara Channel.](lobster_abundance_and_size_plot.png)
 
 ## Collaborator analysis: Trap buoy counts
 
 Total trap buoys observed each year at each site. Trap counts are a measure of fishing pressure.
 
-![Line graph of total lobster trap buoys observed by year at the five reef sites in the Santa Barbara Channel.](../figs/traps_by_year.png)
+![Line graph of total lobster trap buoys observed by year at the five reef sites in the Santa Barbara Channel.](../traps_by_year.png)
 
 ## Summary
 
 Looking at both plots together shows how fishing pressure compares across sites. IVEE and NAPL are marine protected areas, so trap counts at those sites should be near zero, while the fished sites (AQUE, CARP, MOHK) show how trap effort changes over time. Comparing these patterns to the abundance plot gives a sense of whether the protected sites support more lobsters than the fished ones.
+
+
+
