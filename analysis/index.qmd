@@ -24,5 +24,5 @@ Total trap buoys observed each year at each site. Trap counts are a measure of f
 
 Looking at both plots together shows how fishing pressure compares across sites. IVEE and NAPL are marine protected areas, so trap counts at those sites should be near zero, while the fished sites (AQUE, CARP, MOHK) show how trap effort changes over time. Comparing these patterns to the abundance plot gives a sense of whether the protected sites support more lobsters than the fished ones.
 
-![Lobster Report- Sam Samler & Patrick Sherry](../analysis/lobster-report.qmd)
+
 
