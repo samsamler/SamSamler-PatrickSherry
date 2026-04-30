@@ -18,7 +18,7 @@ Total lobsters observed each year at each site.
 
 Total trap buoys observed each year at each site. Trap counts are a measure of fishing pressure.
 
-![Line graph of total lobster trap buoys observed by year at the five reef sites in the Santa Barbara Channel.](../traps_by_year.png)
+![Line graph of total lobster trap buoys observed by year at the five reef sites in the Santa Barbara Channel.](traps_by_year.png)
 
 ## Summary
 
